@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Web Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nmap Web Scanner</h1>
+        
+        <!-- Flash messages (e.g., for errors or success) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h2>Enter Scan Details</h2>
+        <form action="{{ url_for('scan') }}" method="POST">
+            <label for="target">Target IP/Hostname:</label>
+            <input type="text" id="target" name="target" required placeholder="e.g., 192.168.1.1">
+            
+            <label for="options">Scan Options:</label>
+            <select name="options" id="options">
+                <option value="-sS">TCP SYN Scan (-sS)</option>
+                <option value="-sU">UDP Scan (-sU)</option>
+                <option value="-T4 -A">Aggressive Scan (-T4 -A)</option>
+                <option value="-sV">Service Version Scan (-sV)</option>
+                <option value="-O">Operating System Scan (-O)</option>
+            </select>
+            
+            <button type="submit">Start Scan</button>
+        </form>
+    </div>
+</body>
+</html>
+
+

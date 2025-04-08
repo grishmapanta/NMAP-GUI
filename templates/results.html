@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Scan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nmap Scan Results</h1>
+        <div class="scan-details">
+            <h2>Scan Details</h2>
+            <p><strong>Target:</strong> {{ target }}</p>
+            <p><strong>Options:</strong> {{ options }}</p>
+        </div>
+
+        <div class="scan-results">
+            <h2>Scan Results:</h2>
+            {% for host_info in results %}
+                <div class="host-result">
+                    <p><strong>Host:</strong> {{ host_info['host'] }}</p>
+                    <p><strong>Status:</strong> {{ host_info['status'] }}</p>
+
+                    {% if host_info['ports'] %}
+                        <h3>Open Ports:</h3>
+                        <ul class="ports-list">
+                            {% for port in host_info['ports'] %}
+                                <li>Port {{ port['port'] }} ({{ port['state'] }}) - Service: {{ port['service'] }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No open ports detected.</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <form action="{{ url_for('download_report') }}" method="post">
+                <input type="hidden" name="target" value="{{ target }}">
+                <input type="hidden" name="options" value="{{ options }}">
+                <input type="hidden" name="results" value="{{ results|tojson }}">
+                <button type="submit">Download Scan Report (PDF)</button>
+            </form>
+            <a href="{{ url_for('index') }}" class="go-back">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>

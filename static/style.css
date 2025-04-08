@@ -1,0 +1,217 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    color: #fff;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container for all content */
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Header Section */
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.description {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Flash messages */
+.flash-messages {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.flash-messages li {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.flash-messages li.success {
+    background-color: #2ecc71;
+}
+
+.flash-messages li.info {
+    background-color: #3498db;
+}
+
+/* Scan Form Styles */
+.scan-form {
+    background: #ecf0f1;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scan-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #bdc3c7;
+    background-color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Scan Results Section */
+.scan-details,
+.scan-results {
+    margin-top: 30px;
+}
+
+.scan-details h2,
+.scan-results h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.host-result {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.host-result p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+ul.ports-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+ul.ports-list li {
+    background: #f4f4f4;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #34495e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul.ports-list li:hover {
+    background: #bdc3c7;
+}
+
+/* Actions Section */
+.actions {
+    margin-top: 30px;
+}
+
+.download-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #27ae60;
+}
+
+.go-back {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.go-back:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
